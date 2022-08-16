@@ -7,6 +7,10 @@ public class IntegerInput {
         Scanner scanner = new Scanner(System.in);
 
         // write your program here
+        System.out.println("Give a number: ");
+        String number = scanner.nextLine();
+        int convert = Integer.valueOf(number);
+        System.out.println("You gave the number " + convert);
 
     }
 }
