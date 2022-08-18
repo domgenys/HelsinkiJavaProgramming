@@ -13,8 +13,20 @@ public class OnlyTheseNumbers {
             if (number == -1) {
                 break;
             }
-
             numbers.add(number);
+
+        }
+        System.out.println("From where?");
+        int userFirst = Integer.valueOf(scanner.nextLine());
+
+        System.out.println("To where?");
+        int userLast = Integer.valueOf(scanner.nextLine());
+
+        while (userFirst <= userLast) {
+
+            System.out.println(numbers.get(userFirst));
+
+            userFirst++;
         }
 
     }
