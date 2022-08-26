@@ -7,31 +7,34 @@ public class PersonalDetails {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        String longestNameStr = null;
-        int longestName = 0;
+      ArrayList<String> names = new ArrayList<String>();
+      ArrayList <Integer> DOB = new ArrayList<Integer>();
+      
+      while(true){
+          String input = scanner.nextLine();
+          if(input.equals("")){// if empty break
+              break;
+          }
+          String[] splitInput = input.split(",");
+          //split input to arrays, and add to ArrayList
+          
+          names.add(splitInput[0]);
+          DOB.add(Integer.valueOf(splitInput[1]));
+      }
+      
+      String longest = names.get(0);
+      for(String name : names){
+          //if value from arraylist is bigger than longest
+          if(name.length() > longest.length()){
+              longest = name;
+          }
+      }
+        System.out.println("Longest name: " + longest);
+        
         int sum = 0;
-        int count = 0;
-        double avg = 0;
-
-        while (true) {
-            String input = scanner.nextLine();
-            String[] arr = input.split(",");
-
-            if (input.equals("")) {
-                break;
-            }
-
-            if (arr[0].toCharArray().length > longestName) {
-                longestName = arr[0].toCharArray().length;
-                longestNameStr = arr[0];
-            }
-            count++;
-            sum += Integer.parseInt(arr[1]);
-
+        for(int year : DOB){
+            sum+= year;
         }
-
-        avg = (double) sum / count;
-        System.out.println("Longest name: " + longestNameStr);
-        System.out.println("Average of the birth years: " + avg);
+        System.out.println("Average of the birth years: " + 1.0 * sum / DOB.size());
     }
 }
