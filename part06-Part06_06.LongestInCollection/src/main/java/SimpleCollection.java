@@ -19,4 +19,23 @@ public class SimpleCollection {
         return this.elements;
     }
 
+    public String longest() {
+        if (this.elements.isEmpty()) {
+            return null;
+        }
+        // create an object reference for the object to be returned
+        // its first value is the first object on the list
+        String longestString = this.elements.get(0);
+        //check the list, go through
+        for (String e : elements) {
+            // compare each object on the list
+            // to the returnObject -- we compare heights
+            // since we're searching for the longest,
+
+            if (longestString.length() < e.length()) {
+                longestString = e;
+            }
+        }
+        return longestString;
+    }
 }
